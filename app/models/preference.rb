@@ -4,7 +4,10 @@
 #
 #  id                        :bigint           not null, primary key
 #  last_mdx_meteotest_update :datetime
+#  map_url                   :string(255)      default("winter_map"), not null
 #  request_timeout           :integer          default(15)
+#  summer_map                :string(255)      default("https://winter.intermaps.com/bosco_gurin_hike"), not null
+#  winter_map                :string(255)      default("https://winter.intermaps.com/bosco_gurin"), not null
 #  created_at                :datetime         not null
 #  updated_at                :datetime         not null
 #
@@ -16,6 +19,9 @@ class Preference < ApplicationRecord
   MDX_METEOTEST_REFRESH_MINUTES = 59
 
   validates :request_timeout, presence: true
+  validates :summer_map, presence: true
+  validates :winter_map, presence: true
+  validates :map_url, presence: true
   has_many :languages
 
   class << self

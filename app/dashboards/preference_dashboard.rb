@@ -12,6 +12,9 @@ class PreferenceDashboard < Administrate::BaseDashboard
     request_timeout: Field::Number,
     languages: Field::HasMany,
     last_mdx_meteotest_update: Field::DateTime,
+    summer_map: Field::String,
+    winter_map: Field::String,
+    map_url: Field::Select.with_options({collection: [:summer_map, :winter_map]}),
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -31,6 +34,9 @@ class PreferenceDashboard < Administrate::BaseDashboard
   request_timeout
   languages
   last_mdx_meteotest_update
+  summer_map
+  winter_map
+  map_url
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -38,6 +44,9 @@ class PreferenceDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
   request_timeout
+  summer_map
+  winter_map
+  map_url
   ].freeze
 
   # COLLECTION_FILTERS
