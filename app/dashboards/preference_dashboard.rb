@@ -15,6 +15,7 @@ class PreferenceDashboard < Administrate::BaseDashboard
     summer_map: Field::String,
     winter_map: Field::String,
     map_url: Field::Select.with_options({collection: [:summer_map, :winter_map]}),
+    show_snow_panel: Field::Boolean,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -37,6 +38,7 @@ class PreferenceDashboard < Administrate::BaseDashboard
   summer_map
   winter_map
   map_url
+  show_snow_panel
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -47,6 +49,7 @@ class PreferenceDashboard < Administrate::BaseDashboard
   summer_map
   winter_map
   map_url
+  show_snow_panel
   ].freeze
 
   # COLLECTION_FILTERS
